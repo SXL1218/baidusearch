@@ -1,0 +1,56 @@
+plugins {
+    id "com.android.library"
+}
+
+group 'com.baidu.flutter_baidu_mapapi_search'
+version '1.0'
+
+//buildscript {
+//    repositories {
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter'}
+//        maven { url 'https://maven.aliyun.com/repository/content/groups/public' }
+//        google()
+//        mavenCentral()
+//    }
+//
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:7.3.0'
+//    }
+//}
+
+rootProject.allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+        google()
+//        jcenter()
+    }
+}
+
+//apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 20
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+//    implementation fileTree(includes: ['*.jar'], dir: 'baidu_map')
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Map:7.6.4'
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Search:7.6.4'
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Util:7.6.4'
+//    implementation rootProject.findProject(":flutter_baidu_mapapi_base")
+}
